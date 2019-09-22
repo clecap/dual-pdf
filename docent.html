@@ -1,0 +1,55 @@
+<html>
+<head>
+<script src="build/pdf.js"></script>
+
+<style>
+#cont         {position:absolute; top:0; left:0;}
+#the-canvas1  {border:0px solid red;  position:absolute; top:0; left:0;}
+#the-canvas2  {border:0px solid green; position:absolute; top:0; left:0;}
+</style>
+</head>
+<body><div id="cont">
+<canvas id="the-canvas1"></canvas>
+<canvas id="the-canvas2"></canvas>
+</div>
+<script>
+var beamer = window.open ("beamer.html", "beamer", "menubar=no,location=no,");
+
+var pageNum = 1;
+
+document.body.addEventListener("keydown",
+  event => {
+    if (event.keyCode == 39)      {
+      if (pageNum >= pdfDoc.numPages) {return;}  
+      pageNum++; 
+      console.log ("requesting new: " + pageNum);
+      queueRenderPage(pageNum);
+      beamer.queueRenderPage(pageNum);
+    }    // arrow right
+    else if (event.keyCode == 37) {
+      if (pageNum <= 1) {return;} 
+      pageNum--; 
+      console.log ("requesting new: " + pageNum);
+      queueRenderPage(pageNum);
+      beamer.queueRenderPage(pageNum);  
+    }    // arrow left
+  }  
+);
+
+var url = 'web/vortrag-v03-notes.pdf';
+
+beamer.url = 'web/vortrag-v03.pdf';
+ 
+
+</script>
+
+
+<script src="common.js"></script>
+
+
+
+
+</body>
+</html>
+
+

@@ -1,3 +1,6 @@
+# Important Information when you drop by here.
+Currently heavy refactoring is going on. The present state of the repository is hopelessly not up to date. This will be fixed.
+
 # dual-pdf
 Dual PDF-viewer synchronizing two PDFs in two browser windows for coop with LaTeX beamer package
 
